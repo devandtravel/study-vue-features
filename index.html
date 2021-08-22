@@ -18,7 +18,26 @@
         <h2 v-text="title + ' from v-text'"></h2>
         <h2 v-once>{{title + ' from v-ones'}}</h2>
         <h2 v-pre>Header from v-pre</h2>
-        <button class="btn" @click="title='Other header'">Change title from Vue data</button>
+        <button class="btn" @click="title='Other header'">
+          Change title from Vue data
+        </button>
+        <h3>List with v-for="item in 3"</h3>
+        <ul class="list">
+          <li class="list-item" v-for="item in 3">{{item}}</li>
+        </ul>
+        <h3>List with v-for="(value, key) in person"</h3>
+        <ul class="list">
+          <li class="list-item" v-for="(value, key) in person">
+            {{key}}: {{value}}
+          </li>
+        </ul>
+        <h3>List with v-for="(item, index) in items" [removable by click]</h3>
+        <ul class="list" v-if="items.length">
+          <li class="list-item" v-for="(item, index) in items" @click="items.splice(index, 1)">
+            {{index+1}}: {{item}}
+          </li>
+        </ul>
+        <h4 v-show="!items.length">No elements in the list</h4>
       </div>
     </div>
     <script src="https://unpkg.com/vue@next"></script>
