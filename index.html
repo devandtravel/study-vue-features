@@ -5,16 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vue feautures</title>
     <link rel="stylesheet" href="theme.css" />
+    <style>
+      [v-cloak] {
+        display: none;
+      }
+    </style>
   </head>
   <body>
-    <div class="container pt-5" id="app">
+    <div class="container pt-5" id="app" v-cloak>
       <div class="card center">
         <div v-html="customHTML"></div>
-        <h2 v-text="title"></h2>
-        <h2 v-once>{{title}}</h2>
-        <h2 v-pre>Pre header</h2>
-
-        <button class="btn" @click="title='Other header'">Change title</button>
+        <h2 v-text="title + ' from v-text'"></h2>
+        <h2 v-once>{{title + ' from v-ones'}}</h2>
+        <h2 v-pre>Header from v-pre</h2>
+        <button class="btn" @click="title='Other header'">Change title from Vue data</button>
       </div>
     </div>
     <script src="https://unpkg.com/vue@next"></script>
