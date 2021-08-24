@@ -12,12 +12,17 @@ const App = {
     }
   },
   methods: {
-    
+    addItem() {
+      this.items.unshift(this.$refs.myInput.value)
+      this.$refs.myInput.value = ''
+    }
   },
-  computed: {},
-  watch: {
-    
-  }
+  computed: {
+    evenItems() {
+      return this.items.filter(item => item % 2 === 0)
+    }
+  },
+  watch: {}
 }
 
 Vue.createApp(App).mount('#app')

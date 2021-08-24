@@ -32,12 +32,21 @@
           </li>
         </ul>
         <h3>List with v-for="(item, index) in items" [removable by click]</h3>
+        <div class="form-control">
+          <input type="text" @keyup.enter.exact="addItem" ref="myInput">
+        </div>
         <ul class="list" v-if="items.length">
-          <li class="list-item" v-for="(item, index) in items" @click="items.splice(index, 1)">
-            {{index+1}}: {{item}}
+          <li
+            class="list-item"
+            v-for="(item, index) in evenItems"
+            @click.right="items.splice(index, 1)"
+            :key="item"
+          >
+            {{index+1}}: {{item}}&nbsp;
+            <input type="text" @click.prevent.stop/>
           </li>
         </ul>
-        <h4 v-show="!items.length">No elements in the list</h4>
+        <h4 v-show="!evenItems.length">No elements in the list</h4>
       </div>
     </div>
     <script src="https://unpkg.com/vue@next"></script>
